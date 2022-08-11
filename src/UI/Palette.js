@@ -1,18 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { cx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { ObjectInspector } from 'react-inspector';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 import MaterialColorPicker from '@usulpro/color-picker';
-
-const sortObjectKeys = (a, b) => {
-  if (a === 'themeName') return -2;
-  if (b === 'themeName') return 2;
-  if (a === 'palette') return -1;
-  if (b === 'palette') return 1;
-  return a.charCodeAt(0) - b.charCodeAt(0);
-};
 
 const PaletteHolder = styled('div')`
   height: 1px;
@@ -57,6 +47,7 @@ const ColorInput = styled('div')`
 
 export default class Palette extends React.Component {
   static propTypes = {
+    // eslint-disable-next-line react/require-default-props
     theme: PropTypes.shape()
   };
 
@@ -71,6 +62,7 @@ export default class Palette extends React.Component {
   prevColor = '';
 
   onChange = () => {
+    // eslint-disable-next-line react/prop-types
     this.props.onChangePalette(this.state.palette);
   };
 
@@ -79,7 +71,7 @@ export default class Palette extends React.Component {
     this.setState(
       {
         path,
-        editColor: createMuiTheme({ palette }).palette[path[0]][path[1]],
+        editColor: createTheme({ palette }).palette[path[0]][path[1]],
         isPickerOpen
       },
       () => {
@@ -129,6 +121,7 @@ export default class Palette extends React.Component {
         onChange={this.updPalette}
         value={this.state.editColor}
       />
+      {/* eslint-disable-next-line react/button-has-type */}
       <button onClick={this.onChange}>ok</button>
     </ColorInput>
   );
@@ -191,16 +184,16 @@ export default class Palette extends React.Component {
   };
 
   render() {
-    const { palette } = createMuiTheme({ palette: this.state.palette });
+    const { palette } = createTheme({ palette: this.state.palette });
     const colorSet = name =>
       this.renderColorSet(
         palette[name],
         name,
-        this.state.palette.type === 'dark'
+        this.state.palette.mode === 'dark'
       );
 
     return (
-      <PaletteHolder dark={this.state.palette.type === 'dark'}>
+      <PaletteHolder dark={this.state.palette.mode === 'dark'}>
         {colorSet('primary')}
         {colorSet('secondary')}
         {colorSet('error')}

@@ -1,4 +1,4 @@
 import {DecoratorFunction} from "@storybook/addons";
-import {Theme} from "@material-ui/core";
+import {Theme} from "@mui/material/styles/createTheme";
 
 export declare function muiTheme<T = {}>(arg?: Array<Theme>): DecoratorFunction<T>;

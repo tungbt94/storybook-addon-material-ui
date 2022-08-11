@@ -2,13 +2,13 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 
 import { muiTheme } from '../src';
 
 import { overridings as theme1 } from './.themes/customTheme1';
 import { overridings as theme2 } from './.themes/customTheme2';
-import themeF3, { overridings as theme3 } from './.themes/customTheme3';
+import { overridings as theme3 } from './.themes/customTheme3';
 import { overridings as theme4 } from './.themes/customTheme4';
 import { overridings as theme5 } from './.themes/customTheme5';
 
@@ -53,13 +53,13 @@ storiesOf('Material Custom theme', module)
   ))
   .add('Flat buttons', () => (
     <div>
-      <Button variant="flat" color="primary" style={buttonStyle}>
+      <Button variant="text" color="primary" style={buttonStyle}>
         Flat primary
       </Button>
-      <Button variant="flat" color="secondary" style={buttonStyle}>
+      <Button variant="text" color="secondary" style={buttonStyle}>
         Flat secondary
       </Button>
-      <Button variant="flat" style={buttonStyle}>
+      <Button variant="text" style={buttonStyle}>
         Flat default
       </Button>
     </div>

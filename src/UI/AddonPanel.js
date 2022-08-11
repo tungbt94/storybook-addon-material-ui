@@ -1,10 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { cx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { ObjectInspector } from 'react-inspector';
 
-import { Toggle, Link, Button, Dropdown, Paper } from '../Utils/ui_package';
+import { Link, Button, Dropdown, Paper } from '../Utils/ui_package';
 import withChannel from '../adk/WithChannel';
 import { EVENT_ID_INIT, EVENT_ID_DATA, EVENT_ID_BACK } from '../config';
 import FullTheme from './FullTheme';

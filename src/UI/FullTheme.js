@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { cx, css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ObjectInspector } from 'react-inspector';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 
 const sortObjectKeys = (a, b) => {
   if (a === 'themeName') return -2;
@@ -22,13 +20,14 @@ const Holder = styled('div')`
   padding: 8px;
 `;
 
+// eslint-disable-next-line react/prop-types
 export default ({ theme }) => (
   <Holder>
     <ObjectInspector
       expandLevel={1}
       expandPaths="$.palette"
       sortObjectKeys={sortObjectKeys}
-      data={createMuiTheme(theme)}
+      data={createTheme(theme)}
     />
   </Holder>
 );

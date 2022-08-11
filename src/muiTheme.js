@@ -1,18 +1,18 @@
 import React from 'react';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 
 import { EVENT_ID_INIT, EVENT_ID_DATA, EVENT_ID_BACK } from './config';
 import MuiDecorator from './UI/MuiDecorator';
 import { createStore } from './adk/decorator';
 
-const lightBaseTheme = createMuiTheme({
+const lightBaseTheme = createTheme({
   typography: {
     useNextVariants: true
   }
 });
-const darkBaseTheme = createMuiTheme({
+const darkBaseTheme = createTheme({
   palette: {
-    type: 'dark'
+    mode: 'dark'
   },
   typography: {
     useNextVariants: true
